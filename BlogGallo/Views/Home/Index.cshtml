@@ -1,8 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Postagem>
+@{
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Blog do Gallo</h1>
+    <p>Confira aqui as últimas noticias e novidades do mundo!!!</p>
 </div>
+
+@foreach (Postagem postagem in Model) {
+    <img src="@postagem.Foto" width="200">
+    <p>@postagem.Nome</p>
+    <p>@Html.Raw(postagem.Texto)</p>
+}
